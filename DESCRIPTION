@@ -1,0 +1,15 @@
+Package: gesttools
+Type: Package
+Title: General Purpose G-Estimation for End of Study or Time-Varying Outcomes
+Version: 1.3.0
+Author: Daniel Tompsett, Stijn Vansteelandt, Oliver Dukes, Bianca De Stavola
+Maintainer: Daniel Tompsett <danieltompsettwork@gmail.com>
+Description: Provides a series of general purpose tools to perform g-estimation using the methods described in Sjolander and Vansteelandt (2016) <doi:10.1515/em-2015-0005> and Dukes and Vansteelandt <doi:10.1093/aje/kwx347>. The package allows for g-estimation in a wide variety of circumstances, including an end of study or time-varying outcome, and an exposure that is a binary, continuous, or a categorical variable with three or more categories. The package also supports g-estimation with time-varying causal effects and effect modification by a confounding variable.
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+RoxygenNote: 7.1.2
+Imports: DataCombine, tidyr, tibble, tidyselect, geeM, rsample, nnet, magrittr, testthat
+URL: https://github.com/danieltompsett/gesttools
+BugReports: https://github.com/danieltompsett/gesttools/issues
+Config/testthat/edition: 3
