@@ -24,21 +24,28 @@ For Further Information. Please refer to the User Manual Provided on GitHub or f
 We provide a basic example of gesttools with comments below.
 
 ``` r
-library(gesttools)
+ #Load the Package
+ library(gesttools)
+ #Create a simple dataset with exposure A and outcome Y. 
+ #Format the data using the FormatData() function and generate history of exposure.
  datas <- dataexamples(n = 1000, seed = 123, Censoring = FALSE)
  data <- datas$datagest
  data <- FormatData(
  data = data, idvar = "id", timevar = "time", An = "A",
  varying = c("Y", "A", "L"), GenerateHistory = TRUE, GenerateHistoryMax = 1)
+ #Define Inputs
  idvar <- "id"
  timevar <- "time"
  Yn <- "Y"
  An <- "A"
  Cn <- NA
+ #Define the outcome models for each of the three exposure times
  outcomemodels <- list("Y~A+L+U+Lag1A", "Y~A+L+U+Lag1A", "Y~A+L+U+Lag1A")
+ #Define the propensity score model of being exposed. Note that time is included 
  propensitymodel <- c("A~L+U+as.factor(time)+Lag1A")
  censoringmodel <- NULL
  EfmVar <- NA
+ #Perform g-estimation 
  gestSingle(data, idvar, timevar, Yn, An, Cn, outcomemodels, propensitymodel,
  censoringmodel = NULL, type = 1, EfmVar)
 
